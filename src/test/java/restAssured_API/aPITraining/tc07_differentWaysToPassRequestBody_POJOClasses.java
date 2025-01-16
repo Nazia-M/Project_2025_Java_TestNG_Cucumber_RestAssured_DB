@@ -16,25 +16,27 @@ public class tc07_differentWaysToPassRequestBody_POJOClasses {
     ValidatableResponse vr;
     Response response;
 
-    //1. Add json library in pom.xml
-    //2. In @Test create JSON object
-    //3. Convert jsonObject to String in body method
+    //1. Identify each keys data type
+    //2. Create POJO Classes based on Request Body. Declare all variables as private. Parent Class create object of sub
+    //3. Add Getter & Setters to both the classes
+    //4. Call POJO class in API test case and add it to the body
     @Test
-    void post_orgJsonLibrary(){
+    void post_POJOClasses(){
 
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("name","Linda");
+        tc07_POJOClass_1 obj = new tc07_POJOClass_1();
+        obj.setName("Jim");
 
-        HashMap data = new HashMap();
-        data.put("year", 4324);
-        data.put("price", 43242);
-        data.put("CPU model", "Intel Core i9");
-        data.put("Hard disk size", "1 TB");
+        tc07_POJOClass_2 data = new tc07_POJOClass_2();
+        data.setYear("1991");
+        data.setPrice("20Cr");
+        data.setCPU_model("Universe Got 22");
+        data.setHard_disk_size("1 TB");
 
-        jsonObject.put("data", data);
+        obj.setData(data);
+
 
         //Given
-        reqSpec = RestAssured.given().contentType("application/json").body(jsonObject.toString()).log().all();
+        reqSpec = RestAssured.given().contentType("application/json").body(obj).log().all();
         System.out.println("-------------- Post Given ---------------------");
 
         //When
@@ -65,11 +67,11 @@ public class tc07_differentWaysToPassRequestBody_POJOClasses {
         int price = response.jsonPath().getInt("data.price");
         System.out.println("-------price is : "+price);
 
-//        String CPUmodel = response.jsonPath().getString("data.CPU model");
-//        System.out.println("-------CPUmodel is : "+CPUmodel);
-//
-//        String Harddisksize = response.jsonPath().getString("data.Hard disk size");
-//        System.out.println("-------Harddisksize is : "+Harddisksize);
+        String CPUmodel = response.jsonPath().getString("data.cpu_model");
+        System.out.println("-------CPUmodel is : "+CPUmodel);
+
+        String Harddisksize = response.jsonPath().getString("data.hard_disk_size");
+        System.out.println("-------Harddisksize is : "+Harddisksize);
 
 
         String createdAt = response.jsonPath().getString("createdAt");

@@ -65,11 +65,11 @@ public class tc06_differentWaysToPassRequestBody_orgJsonLibrary {
         int price = response.jsonPath().getInt("data.price");
         System.out.println("-------price is : "+price);
 
-//        String CPUmodel = response.jsonPath().getString("data.CPU model");
-//        System.out.println("-------CPUmodel is : "+CPUmodel);
-//
-//        String Harddisksize = response.jsonPath().getString("data.Hard disk size");
-//        System.out.println("-------Harddisksize is : "+Harddisksize);
+        String CPUmodel = response.jsonPath().getString("data.cpu_model");
+        System.out.println("-------CPUmodel is : "+CPUmodel);
+
+        String Harddisksize = response.jsonPath().getString("data.hard_disk_size");
+        System.out.println("-------Harddisksize is : "+Harddisksize);
 
 
         String createdAt = response.jsonPath().getString("createdAt");
