@@ -1,4 +1,4 @@
-package RestAssured_API;
+package restAssured_API;
 
 public class BookingDates {
 
