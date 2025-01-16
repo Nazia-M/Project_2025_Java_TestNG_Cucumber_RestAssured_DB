@@ -4,8 +4,14 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import org.json.JSONObject;
+import org.json.JSONTokener;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
 public class tc08_differentWaysToPassRequestBody_JsonExternalFile {
 
@@ -13,27 +19,18 @@ public class tc08_differentWaysToPassRequestBody_JsonExternalFile {
     ValidatableResponse vr;
     Response response;
 
-    //1. Identify each keys data type
-    //2. Create POJO Classes based on Request Body. Declare all variables as private. Parent Class create object of sub
-    //3. Add Getter & Setters to both the classes
-    //4. Call POJO class in API test case and add it to the body
+    //1. Create tc08_Body.json file
+    //2.
     @Test
-    void post_POJOClasses(){
+    void post_JsonExternalFile() throws FileNotFoundException {
 
-        tc07_POJOClass_1 obj = new tc07_POJOClass_1();
-        obj.setName("Jim");
-
-        tc07_POJOClass_2 data = new tc07_POJOClass_2();
-        data.setYear("1991");
-        data.setPrice("20Cr");
-        data.setCPU_model("Universe Got 22");
-        data.setHard_disk_size("1 TB");
-
-        obj.setData(data);
-
+        File file = new File(".\\tc08_Body.json");
+        FileReader fileReader = new FileReader(file);
+        JSONTokener jsonTokener = new JSONTokener(fileReader);
+        JSONObject data = new JSONObject(jsonTokener);
 
         //Given
-        reqSpec = RestAssured.given().contentType("application/json").body(obj).log().all();
+        reqSpec = RestAssured.given().contentType("application/json").body(data.toString()).log().all();
         System.out.println("-------------- Post Given ---------------------");
 
         //When
@@ -61,7 +58,7 @@ public class tc08_differentWaysToPassRequestBody_JsonExternalFile {
         int year = response.jsonPath().getInt("data.year");
         System.out.println("-------year is : "+year);
 
-        int price = response.jsonPath().getInt("data.price");
+        double price = response.jsonPath().getDouble("data.price");
         System.out.println("-------price is : "+price);
 
         String CPUmodel = response.jsonPath().getString("data.cpu_model");
