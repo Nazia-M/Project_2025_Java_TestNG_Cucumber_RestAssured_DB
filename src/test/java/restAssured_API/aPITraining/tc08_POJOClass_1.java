@@ -1,13 +1,9 @@
 package restAssured_API.aPITraining;
 
-import org.json.JSONObject;
-
-import java.util.HashMap;
-
-public class tc07_POJOClass_1 {
+public class tc08_POJOClass_1 {
 
     private String name;
-    private tc07_POJOClass_2 data;
+    private tc08_POJOClass_2 data;
 
     public String getName() {
         return name;
@@ -17,11 +13,11 @@ public class tc07_POJOClass_1 {
         this.name = name;
     }
 
-    public tc07_POJOClass_2 getData() {
+    public tc08_POJOClass_2 getData() {
         return data;
     }
 
-    public void setData(tc07_POJOClass_2 data) {
+    public void setData(tc08_POJOClass_2 data) {
         this.data = data;
     }
 //    JSONObject jsonObject = new JSONObject();

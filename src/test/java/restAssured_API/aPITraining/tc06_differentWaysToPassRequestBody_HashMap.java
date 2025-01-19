@@ -4,39 +4,32 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
-import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
 
-public class tc07_differentWaysToPassRequestBody_POJOClasses {
+public class tc06_differentWaysToPassRequestBody_HashMap {
 
     RequestSpecification reqSpec;
     ValidatableResponse vr;
     Response response;
 
-    //1. Identify each keys data type
-    //2. Create POJO Classes based on Request Body. Declare all variables as private. Parent Class create object of sub
-    //3. Add Getter & Setters to both the classes
-    //4. Call POJO class in API test case and add it to the body
     @Test
-    void post_POJOClasses(){
+    void post_HashMap(){
 
-        tc07_POJOClass_1 obj = new tc07_POJOClass_1();
-        obj.setName("Jim");
+        HashMap map = new HashMap();
+        map.put("name","Scott");
 
-        tc07_POJOClass_2 data = new tc07_POJOClass_2();
-        data.setYear("1991");
-        data.setPrice("20Cr");
-        data.setCPU_model("Universe Got 22");
-        data.setHard_disk_size("1 TB");
-
-        obj.setData(data);
-
+        HashMap data = new HashMap();
+        data.put("year", 4324);
+        data.put("price", 43242);
+        data.put("CPU model", "Intel Core i9");
+        data.put("Hard disk size", "1 TB");
+        map.put("data", data);
 
         //Given
-        reqSpec = RestAssured.given().contentType("application/json").body(obj).log().all();
+        reqSpec = RestAssured.given().contentType("application/json").body(map).log().all();
         System.out.println("-------------- Post Given ---------------------");
 
         //When

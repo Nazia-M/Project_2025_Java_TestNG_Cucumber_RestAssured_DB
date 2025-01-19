@@ -1,6 +1,6 @@
 package restAssured_API.aPITraining;
 
-public class tc07_POJOClass_2 {
+public class tc08_POJOClass_2 {
 
 
     private String year;

@@ -4,32 +4,37 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
 
-public class tc05_differentWaysToPassRequestBody_HashMap {
+public class tc07_differentWaysToPassRequestBody_orgJsonLibrary {
 
     RequestSpecification reqSpec;
     ValidatableResponse vr;
     Response response;
 
+    //1. Add json library in pom.xml
+    //2. In @Test create JSON object
+    //3. Convert jsonObject to String in body method
     @Test
-    void post_HashMap(){
+    void post_orgJsonLibrary(){
 
-        HashMap map = new HashMap();
-        map.put("name","Scott");
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name","Linda");
 
         HashMap data = new HashMap();
         data.put("year", 4324);
         data.put("price", 43242);
         data.put("CPU model", "Intel Core i9");
         data.put("Hard disk size", "1 TB");
-        map.put("data", data);
+
+        jsonObject.put("data", data);
 
         //Given
-        reqSpec = RestAssured.given().contentType("application/json").body(map).log().all();
+        reqSpec = RestAssured.given().contentType("application/json").body(jsonObject.toString()).log().all();
         System.out.println("-------------- Post Given ---------------------");
 
         //When

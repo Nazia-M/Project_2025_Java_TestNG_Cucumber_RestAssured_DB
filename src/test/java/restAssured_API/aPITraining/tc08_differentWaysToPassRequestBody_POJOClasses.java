@@ -4,33 +4,36 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
-import org.json.JSONObject;
-import org.json.JSONTokener;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-
-public class tc08_differentWaysToPassRequestBody_JsonExternalFile {
+public class tc08_differentWaysToPassRequestBody_POJOClasses {
 
     RequestSpecification reqSpec;
     ValidatableResponse vr;
     Response response;
 
-    //1. Create tc08_Body.json file
-    //2.
+    //1. Identify each keys data type
+    //2. Create POJO Classes based on Request Body. Declare all variables as private. Parent Class create object of sub
+    //3. Add Getter & Setters to both the classes
+    //4. Call POJO class in API test case and add it to the body
     @Test
-    void post_JsonExternalFile() throws FileNotFoundException {
+    void post_POJOClasses(){
 
-        File file = new File(".\\tc08_Body.json");
-        FileReader fileReader = new FileReader(file);
-        JSONTokener jsonTokener = new JSONTokener(fileReader);
-        JSONObject data = new JSONObject(jsonTokener);
+        tc08_POJOClass_1 obj = new tc08_POJOClass_1();
+        obj.setName("Jim");
+
+        tc08_POJOClass_2 data = new tc08_POJOClass_2();
+        data.setYear("1991");
+        data.setPrice("20543543535353");
+        data.setCPU_model("Universe Got 22");
+        data.setHard_disk_size("1 TB");
+
+        obj.setData(data);
+
 
         //Given
-        reqSpec = RestAssured.given().contentType("application/json").body(data.toString()).log().all();
+        reqSpec = RestAssured.given().contentType("application/json").body(obj).log().all();
         System.out.println("-------------- Post Given ---------------------");
 
         //When

@@ -5,36 +5,32 @@ import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
+import org.json.JSONTokener;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
-public class tc06_differentWaysToPassRequestBody_orgJsonLibrary {
+public class tc09_differentWaysToPassRequestBody_JsonExternalFile {
 
     RequestSpecification reqSpec;
     ValidatableResponse vr;
     Response response;
 
-    //1. Add json library in pom.xml
-    //2. In @Test create JSON object
-    //3. Convert jsonObject to String in body method
+    //1. Create tc08_Body.json file
+    //2. Add required Classes
     @Test
-    void post_orgJsonLibrary(){
+    void post_JsonExternalFile() throws FileNotFoundException {
 
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("name","Linda");
-
-        HashMap data = new HashMap();
-        data.put("year", 4324);
-        data.put("price", 43242);
-        data.put("CPU model", "Intel Core i9");
-        data.put("Hard disk size", "1 TB");
-
-        jsonObject.put("data", data);
+        File file = new File(".\\tc08_Body.json");
+        FileReader fileReader = new FileReader(file);
+        JSONTokener jsonTokener = new JSONTokener(fileReader);
+        JSONObject data = new JSONObject(jsonTokener);
 
         //Given
-        reqSpec = RestAssured.given().contentType("application/json").body(jsonObject.toString()).log().all();
+        reqSpec = RestAssured.given().contentType("application/json").body(data.toString()).log().all();
         System.out.println("-------------- Post Given ---------------------");
 
         //When
@@ -62,7 +58,7 @@ public class tc06_differentWaysToPassRequestBody_orgJsonLibrary {
         int year = response.jsonPath().getInt("data.year");
         System.out.println("-------year is : "+year);
 
-        int price = response.jsonPath().getInt("data.price");
+        double price = response.jsonPath().getDouble("data.price");
         System.out.println("-------price is : "+price);
 
         String CPUmodel = response.jsonPath().getString("data.cpu_model");
