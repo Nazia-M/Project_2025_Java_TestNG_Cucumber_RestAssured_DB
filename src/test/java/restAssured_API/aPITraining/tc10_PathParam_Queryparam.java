@@ -27,7 +27,7 @@ public class tc10_PathParam_Queryparam {
                 .pathParam("mypath", "users")
                 .queryParam("page", 2)
                 .queryParam("id", 5);
-        System.out.println("------------------ Post Given with Path & Query parameter---------------------");
+        System.out.println("------------------ Given with Path & Query parameter---------------------");
 
         //When
         System.out.println("------------------ Add Path param to url ------------------");
