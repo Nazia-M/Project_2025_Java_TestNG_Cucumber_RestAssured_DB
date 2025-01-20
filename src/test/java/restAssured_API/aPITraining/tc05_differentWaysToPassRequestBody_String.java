@@ -14,7 +14,7 @@ public class tc05_differentWaysToPassRequestBody_String {
     Response response;
 
     //1. Payload as String
-    @Test
+    @Test(groups = "qa")
     void post_String(){
 
         String payload = "{\n" +

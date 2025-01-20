@@ -22,7 +22,7 @@ public class tc13_jacksonAPI_serialization_deserialization {
     Response response;
     Gson gson;
 
-    @Test
+    @Test(groups = "qa")
     public void jackson_API_serialization_deserialization() throws JsonProcessingException {
 
         tc12_POJOClass_1 obj = new tc12_POJOClass_1();

@@ -14,7 +14,7 @@ public class tc10_PathParam_Queryparam {
     ValidatableResponse vr;
     Response response;
 
-    @Test
+    @Test(groups = "qa")
     void testPathParam_Queryparam(){
 
 //        Url : https://reqres.in/api/users?page=2&id=5

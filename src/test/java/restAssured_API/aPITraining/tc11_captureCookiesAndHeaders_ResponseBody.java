@@ -16,7 +16,7 @@ public class tc11_captureCookiesAndHeaders_ResponseBody {
     RequestSpecification reqSpec;
     Response response;
 
-    @Test
+    @Test(groups = "qa", priority = 1)
     void captureCookiesFromResponse(){
 
         //Given
@@ -44,7 +44,7 @@ public class tc11_captureCookiesAndHeaders_ResponseBody {
 
     }
 
-    @Test
+    @Test(groups = "qa", priority = 2)
     void getHeaders(){
 
         //Given

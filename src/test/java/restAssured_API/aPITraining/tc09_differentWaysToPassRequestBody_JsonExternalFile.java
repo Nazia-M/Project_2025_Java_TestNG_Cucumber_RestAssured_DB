@@ -21,7 +21,7 @@ public class tc09_differentWaysToPassRequestBody_JsonExternalFile {
 
     //1. Create tc08_Body.json file
     //2. Add required Classes
-    @Test
+    @Test(groups = "qa")
     void post_JsonExternalFile() throws FileNotFoundException {
 
         File file = new File(".\\tc08_Body.json");

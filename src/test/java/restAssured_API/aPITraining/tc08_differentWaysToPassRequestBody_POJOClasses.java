@@ -18,7 +18,7 @@ public class tc08_differentWaysToPassRequestBody_POJOClasses {
     //2. Create POJO Classes based on Request Body. Declare all variables as private. Parent Class create object of sub
     //3. Add Getter & Setters to both the classes
     //4. Call POJO class in API test case and add it to the body
-    @Test
+    @Test(groups = "qa")
     void post_POJOClasses(){
 
         tc08_POJOClass_1 obj = new tc08_POJOClass_1();

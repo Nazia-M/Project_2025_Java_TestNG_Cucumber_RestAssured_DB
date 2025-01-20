@@ -14,7 +14,7 @@ public class tc04_deleteRequest {
     Response response;
     tc02_postRequest postId;
 
-    @Test
+    @Test(groups = "qa")
     void deleteMethod_DELETE(){
 
         System.out.println("-------------- deleteMethod_DELETE----------------------");

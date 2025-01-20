@@ -15,7 +15,7 @@ public class tc06_differentWaysToPassRequestBody_HashMap {
     ValidatableResponse vr;
     Response response;
 
-    @Test
+    @Test(groups = "qa")
     void post_HashMap(){
 
         HashMap map = new HashMap();

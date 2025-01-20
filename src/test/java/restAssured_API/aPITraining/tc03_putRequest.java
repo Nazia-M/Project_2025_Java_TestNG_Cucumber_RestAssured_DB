@@ -23,7 +23,7 @@ public class tc03_putRequest {
     //        "name" : "morpheus",
     //        "job"  : "leader"
     //    }
-    @Test
+    @Test(groups = "qa")
     void putMethod_UPDATE(){
 
         System.out.println("-------------- PutMethod_UPDATE----------------------");

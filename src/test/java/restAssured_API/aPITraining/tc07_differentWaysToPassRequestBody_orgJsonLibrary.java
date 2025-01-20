@@ -19,7 +19,7 @@ public class tc07_differentWaysToPassRequestBody_orgJsonLibrary {
     //1. Add json library in pom.xml
     //2. In @Test create JSON object
     //3. Convert jsonObject to String in body method
-    @Test
+    @Test(groups = "qa")
     void post_orgJsonLibrary(){
 
         JSONObject jsonObject = new JSONObject();

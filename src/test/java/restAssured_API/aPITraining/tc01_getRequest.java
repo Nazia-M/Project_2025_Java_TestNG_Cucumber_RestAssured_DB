@@ -14,7 +14,7 @@ public class tc01_getRequest {
     static int id;
 
     //Get  https://reqres.in/api/users?page=2
-    @Test
+    @Test(groups = "qa")
     void getMethod_LIST_USERS(){
 
         System.out.println("-------------- getMethod_LIST_USERS ----------------------");

@@ -22,7 +22,7 @@ public class tc02_postRequest {
     //        "name" : "morpheus",
     //        "job"  : "leader"
     //    }
-    @Test
+    @Test(groups = "qa")
     void postMethod_CREATE(){
 
         System.out.println("-------------- postMethod_CREATE ----------------------");

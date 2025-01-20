@@ -20,7 +20,7 @@ public class tc12_gson_serialization_deserialization {
     Response response;
     Gson gson;
 
-    @Test
+    @Test(groups = "qa")
     public void gson_serialization_deserialization(){
 
         tc12_POJOClass_1 obj = new tc12_POJOClass_1();
