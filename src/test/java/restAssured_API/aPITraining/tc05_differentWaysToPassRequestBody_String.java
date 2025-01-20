@@ -65,10 +65,12 @@ public class tc05_differentWaysToPassRequestBody_String {
         String Harddisksize = response.jsonPath().getString("data.hard_disk_size");
         System.out.println("-------Harddisksize is : "+Harddisksize);
 
-
         String createdAt = response.jsonPath().getString("createdAt");
         System.out.println("-------createdAt is : "+createdAt);
 
+        //Retrieve value using extract().path()
+        String CPUmodel1 = response.then().extract().path("data.CPU_model");
+        System.out.println("-------CPUmodel1 is : "+CPUmodel1);
 
 
 

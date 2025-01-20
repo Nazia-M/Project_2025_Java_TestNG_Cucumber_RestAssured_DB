@@ -76,6 +76,10 @@ public class tc07_differentWaysToPassRequestBody_orgJsonLibrary {
         System.out.println("-------createdAt is : "+createdAt);
 
 
+        int JS = response.jsonPath().getJsonObject("data.price");
+        System.out.println("-------JSON Path getJSONObject : "+JS);
+
+
 
 
 

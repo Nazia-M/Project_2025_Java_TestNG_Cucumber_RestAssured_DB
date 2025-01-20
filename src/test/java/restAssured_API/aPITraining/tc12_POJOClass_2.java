@@ -1,10 +1,21 @@
 package restAssured_API.aPITraining;
 
-public class tc08_POJOClass_2 {
+public class tc12_POJOClass_2 {
 
+//    {
+//        "name": "Apple MacBook Pro 16",
+//            "data": {
+//                "year": 2019,
+//                "price": 1849.99,
+//                "CPU model": "Intel Core i9",
+//                "Hard disk size": "1 TB"
+//        }
+//    }
 
     private String year;
     private String price;
+    private String CPU_model;
+    private String Hard_disk_size;
 
     public String getYear() {
         return year;
@@ -37,11 +48,6 @@ public class tc08_POJOClass_2 {
     public void setHard_disk_size(String hard_disk_size) {
         Hard_disk_size = hard_disk_size;
     }
-
-    private String CPU_model;
-    private String Hard_disk_size;
-
-
 
 
 

@@ -1,10 +1,20 @@
 package restAssured_API.aPITraining;
 
-public class tc08_POJOClass_2 {
+public class tc12_Response_Deserialization_2 {
 
+//    {
+//            "id": "ff808181932badb60194824d09fe4b43",
+//            "name": "Jim",
+//            "createdAt": "2025-01-20T06:01:14.495+00:00",
+//            "data": {
+//                "year": "1991",
+//                "price": "20543543535353",
+//                "CPU_model": "Universe Got 22",
+//                "Hard_disk_size": "1 TB"
+//             }
+//    }
 
     private String year;
-    private String price;
 
     public String getYear() {
         return year;
@@ -38,9 +48,9 @@ public class tc08_POJOClass_2 {
         Hard_disk_size = hard_disk_size;
     }
 
+    private String price;
     private String CPU_model;
     private String Hard_disk_size;
-
 
 
 

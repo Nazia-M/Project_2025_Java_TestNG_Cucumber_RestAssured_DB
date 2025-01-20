@@ -13,6 +13,7 @@ public class tc08_differentWaysToPassRequestBody_POJOClasses {
     ValidatableResponse vr;
     Response response;
 
+    // https://restful-api.dev
     //1. Identify each keys data type
     //2. Create POJO Classes based on Request Body. Declare all variables as private. Parent Class create object of sub
     //3. Add Getter & Setters to both the classes
