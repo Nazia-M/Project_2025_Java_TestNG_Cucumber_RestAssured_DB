@@ -1,3 +1,3 @@
 This Project is created to Revise all Automation UI, API and DB concepts
-1. Using  Maven, TestNG, Cucumber, Selenium, RestAssured, Git, Github, Jenkins
-2. To run this project just run testng.xml
+1. For learning purpose check src/test/java/restassured/aPITraining and run tests
+2. To check the entire API Framework check all folders

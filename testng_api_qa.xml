@@ -11,8 +11,19 @@
 
 
         <classes>
-            <class name="restAssured_API.aPITraining">
-            </class>
+            <class name="restassured.aPITraining.tc01_getRequest"></class>
+            <class name="restassured.aPITraining.tc02_postRequest"></class>
+            <class name="restassured.aPITraining.tc03_putRequest"></class>
+            <class name="restassured.aPITraining.tc04_deleteRequest"></class>
+            <class name="restassured.aPITraining.tc05_differentWaysToPassRequestBody_String"></class>
+            <class name="restassured.aPITraining.tc06_differentWaysToPassRequestBody_HashMap"></class>
+            <class name="restassured.aPITraining.tc07_differentWaysToPassRequestBody_orgJsonLibrary"></class>
+            <class name="restassured.aPITraining.tc08_differentWaysToPassRequestBody_POJOClasses"></class>
+            <class name="restassured.aPITraining.tc09_differentWaysToPassRequestBody_JsonExternalFile"></class>
+            <class name="restassured.aPITraining.tc10_PathParam_Queryparam"></class>
+            <class name="restassured.aPITraining.tc11_captureCookiesAndHeaders_ResponseBody"></class>
+            <class name="restassured.aPITraining.tc12_gson_serialization_deserialization"></class>
+            <class name="restassured.aPITraining.tc13_jacksonAPI_serialization_deserialization"></class>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->
