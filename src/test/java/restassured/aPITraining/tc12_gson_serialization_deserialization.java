@@ -7,6 +7,9 @@ import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.Test;
+import restassured.pojos.tc12_POJOClass_1;
+import restassured.pojos.tc12_POJOClass_2;
+import restassured.pojos.tc12_Response_POJO_Deserialization_1;
 
 // Use jsonschema2pojo.org website to check how many POJO classes we need to create
 //Step 1 : POST , URL[Base URI + base Path], Header, Body, Auth

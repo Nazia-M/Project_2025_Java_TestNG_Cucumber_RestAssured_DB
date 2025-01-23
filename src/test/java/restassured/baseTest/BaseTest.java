@@ -33,7 +33,8 @@ public class BaseTest {
 
         //We can set Base URL and Content type in 2 ways. Can use any one from below
         //1. Using Restassured OR
-        reqSpec = RestAssured.given().baseUri(APIConstants.BASE_URL).contentType(ContentType.JSON);
+        reqSpec = RestAssured.given().baseUri(APIConstants.BASE_URI).contentType(ContentType.JSON);
+        System.out.println("SetUp : "+reqSpec);
         //2. Using RequestSpecBuilder()
 //        reqSpec = new RequestSpecBuilder().setBaseUri(APIConstants.BASE_URL).addHeader("Content-Type", "application/json").build();
 

@@ -6,6 +6,8 @@ import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import restassured.pojos.tc08_POJOClass_1;
+import restassured.pojos.tc08_POJOClass_2;
 
 public class tc08_differentWaysToPassRequestBody_POJOClasses {
 

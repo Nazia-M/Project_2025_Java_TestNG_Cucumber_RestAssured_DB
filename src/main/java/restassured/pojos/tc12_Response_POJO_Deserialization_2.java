@@ -1,4 +1,4 @@
-package restassured.aPITraining;
+package restassured.pojos;
 
 public class tc12_Response_POJO_Deserialization_2 {
 

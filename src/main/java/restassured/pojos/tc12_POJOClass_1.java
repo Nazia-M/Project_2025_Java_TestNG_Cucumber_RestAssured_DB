@@ -1,4 +1,4 @@
-package restassured.aPITraining;
+package restassured.pojos;
 
 public class tc12_POJOClass_1 {
 

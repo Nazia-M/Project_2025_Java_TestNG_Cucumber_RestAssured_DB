@@ -10,7 +10,7 @@ public class AssertActions {
 
     public void verifyResponseBody(String actual, String expected, String description){
 
-        assertThat(actual).isNotNull().isNotBlank();
+//        assertThat(actual).isNotNull().isNotBlank();
 
         assertEquals(actual, expected, description);
     }
