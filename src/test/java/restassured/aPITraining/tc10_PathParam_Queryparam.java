@@ -22,18 +22,21 @@ public class tc10_PathParam_Queryparam {
 //        Query Param 2 : id=5
 
         //Given
+        System.out.println("------------------ Given ---------------------");
         reqSpec = RestAssured.given()
+                .baseUri("https://reqres.in")
+                .basePath("/api/{mypath}")       // Path Param is created below with key mypath and value users. In BasePath call pathParam using {}
                 .pathParam("mypath", "users")
                 .queryParam("page", 2)
-                .queryParam("id", 5);
-        System.out.println("------------------ Given with Path & Query parameter---------------------");
+                .queryParam("id", 8);
+        System.out.println("------------------ Path & Query parameter Added---------------------");
 
         //When
-        System.out.println("------------------ Add Path param to url ------------------");
-        Response response = reqSpec.when().get("https://reqres.in/api/{mypath}");
-        System.out.println("----------------- get When path param is added to url, and query param will automatically be appended to this url---------------------");
+        System.out.println("------------------ When ---------------------");
+        Response response = reqSpec.when().get();
 
         //Then Validate - Status code
+        System.out.println("------------------ Then ---------------------");
         response.then().log().all();
         System.out.println("----------------Response StatusCode : "+response.statusCode());
 
