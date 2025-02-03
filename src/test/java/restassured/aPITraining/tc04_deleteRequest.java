@@ -19,11 +19,13 @@ public class tc04_deleteRequest {
 
         System.out.println("-------------- deleteMethod_DELETE----------------------");
 
-        reqSpec = RestAssured.given();
+        reqSpec = RestAssured.given().log().all();
         System.out.println("-------------- Delete Given ---------------------");
 
         //When - id created in Post method global vaiable id is called
-        String url = "https://reqres.in/api/users/"+(postId.id);
+        tc02_postRequest tc02 = new tc02_postRequest();
+        int id = tc02.user_id;
+        String url = "https://reqres.in/api/users/"+id;
         System.out.println("---------URL : "+url);
         Response response = reqSpec.when().delete(url);
         System.out.println("-------------- Delete When ---------------------");

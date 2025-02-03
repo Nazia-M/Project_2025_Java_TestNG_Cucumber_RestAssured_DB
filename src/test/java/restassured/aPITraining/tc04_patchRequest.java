@@ -9,11 +9,12 @@ import org.testng.annotations.Test;
 
 import java.util.HashMap;
 
-public class tc03_putRequest {
+public class tc04_patchRequest {
 
     RequestSpecification reqSpec;
     ValidatableResponse vr;
     Response response;
+
 
     //Both Update and Delete need ID so we need to capture ID from Post request/ First create id Global variables
 
@@ -23,31 +24,33 @@ public class tc03_putRequest {
     //        "job"  : "leader"
     //    }
     @Test(groups = "qa")
-    void putMethod_UPDATE(){
+    void patchMethod_UPDATE(){
 
-        System.out.println("-------------- PutMethod_UPDATE----------------------");
+        System.out.println("-------------- PatchMethod_UPDATE----------------------");
 
-        System.out.println("-------------- Put Request Body Updated for the id in HashMap----------------------");
+        System.out.println("-------------- Patch Request Body Updated for the id in HashMap----------------------");
         HashMap data = new HashMap();
         data.put("name" , "John");
-        data.put("job" , "TECHNOLOGY");
+        data.put("job" , "COMPUTER SCIENCE");
 
         //Given  contentType can be ContentType.JSON or application/json
+        System.out.println("-------------- Patch Given ---------------------");
         reqSpec = RestAssured.given().contentType("application/json").body(data).log().all();
-        System.out.println("-------------- Put Given ---------------------");
+
 
         //When - id created in Post method global vaiable id is called
+        System.out.println("-------------- Patch When ---------------------");
         tc02_postRequest tc02 = new tc02_postRequest();
         int id = tc02.user_id;
-        System.out.println("--------- id : "+id);
         String url = "https://reqres.in/api/users/"+id;
         System.out.println("---------URL : "+url);
-        Response response = reqSpec.when().put(url);
-        System.out.println("-------------- Put When ---------------------");
+        Response response = reqSpec.when().patch(url);
+
 
         //Then
+        System.out.println("-------------- Patch Then ---------------------");
         vr = response.then().log().all();
-        System.out.println("-------------- Put Then ---------------------");
+
 
         //Validation - Status code
         System.out.println("-------Response StatusCode : "+response.statusCode());

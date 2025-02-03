@@ -14,7 +14,7 @@ public class tc02_postRequest {
     RequestSpecification reqSpec;
     ValidatableResponse vr;
     Response response;
-    static int id;
+    static int user_id=0;
 
     //Post  https://reqres.in/api/users
     //   Sending JSON data - For now using HashMap. We don't use hashmap coz if we use it we will have to hardcode the data
@@ -54,8 +54,8 @@ public class tc02_postRequest {
         System.out.println("-------name is : "+name);
         String job = response.jsonPath().getString("job");
         System.out.println("-------job is : "+job);
-        id = response.jsonPath().getInt("id");
-        System.out.println("-------id is : "+id);
+        user_id = response.jsonPath().getInt("id");
+        System.out.println("-------id is : "+user_id);
         String createdAt = response.jsonPath().getString("createdAt");
         System.out.println("-------createdAt is : "+createdAt);
     }

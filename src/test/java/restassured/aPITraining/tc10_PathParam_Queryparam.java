@@ -28,7 +28,7 @@ public class tc10_PathParam_Queryparam {
                 .basePath("/api/{mypath}")       // Path Param is created below with key mypath and value users. In BasePath call pathParam using {}
                 .pathParam("mypath", "users")
                 .queryParam("page", 2)
-                .queryParam("id", 8);
+                .queryParam("id", 8).log().all();
         System.out.println("------------------ Path & Query parameter Added---------------------");
 
         //When

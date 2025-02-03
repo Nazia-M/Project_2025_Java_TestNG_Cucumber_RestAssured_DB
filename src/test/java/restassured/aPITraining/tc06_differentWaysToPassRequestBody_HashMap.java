@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class tc06_differentWaysToPassRequestBody_HashMap {
 
@@ -18,10 +19,10 @@ public class tc06_differentWaysToPassRequestBody_HashMap {
     @Test(groups = "qa")
     void post_HashMap(){
 
-        HashMap map = new HashMap();
+        LinkedHashMap map = new LinkedHashMap();
         map.put("name","Scott");
 
-        HashMap data = new HashMap();
+        LinkedHashMap data = new LinkedHashMap();
         data.put("year", 4324);
         data.put("price", 43242);
         data.put("CPU model", "Intel Core i9");

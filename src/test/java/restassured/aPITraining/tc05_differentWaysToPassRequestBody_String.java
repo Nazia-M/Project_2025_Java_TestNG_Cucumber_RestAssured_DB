@@ -28,18 +28,25 @@ public class tc05_differentWaysToPassRequestBody_String {
                 "}";
 
         //Given
-        reqSpec = RestAssured.given().contentType("application/json").body(payload).log().all();
         System.out.println("-------------- Post Given ---------------------");
+        reqSpec = RestAssured.given()
+                .contentType("application/json")
+                .baseUri("https://api.restful-api.dev")
+                .body(payload)
+                .log().all();
+
 
         //When
-        String url = "https://api.restful-api.dev/objects";
-        System.out.println("---------URL : "+url);
-        Response response = reqSpec.when().post(url);
         System.out.println("-------------- Post When ---------------------");
+//        String url = "https://api.restful-api.dev/objects";
+//        System.out.println("---------URL : "+url);
+        Response response = reqSpec.when().post("/objects");
+
 
         //Then
-        vr = response.then().log().all();
         System.out.println("-------------- Post Then ---------------------");
+        vr = response.then().log().all();
+
 
         //Validation - Status code
         System.out.println("-------Response StatusCode : "+response.statusCode());
