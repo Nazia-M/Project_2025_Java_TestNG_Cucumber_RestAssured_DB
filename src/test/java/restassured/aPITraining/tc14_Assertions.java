@@ -16,7 +16,7 @@ import restassured.pojos.tc12_Response_POJO_Deserialization_1;
 //Step 2 : Prepare Payload(Java objects -> JSON String) , Send the request
 //Step 3 : Valdiate Response(JSON string -> Java objects), Validate status code, response time, response data
 
-public class tc14_Assetions {
+public class tc14_Assertions {
 
     RequestSpecification reqSpec;
     ValidatableResponse vr;
