@@ -9,10 +9,9 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import io.restassured.path.json.JsonPath;
 
 public class tc16_DataDriven {
 
@@ -23,7 +22,11 @@ public class tc16_DataDriven {
     @Test(priority = 0)
     public void dataDrivernTestCase(){
 
-        String requestBody = "{\\r\\n{\\r\\n{\\\"name\\\":\\\"Learn Appium Automation\\\",\\r\\n\\\"isbn\\\":\\\"fdfdsfsdfsf\\\",\\r\\n\\\"aisle\\\":\\\"224\\\",\\r\\n\\\"author\\\":\\\"John Joe\\\"\\r\\n}";
+        String requestBody = "{\"name\":\"Learn Appium Automation\",\n" +
+                "\"isbn\":\"fdfdsfsdfsf\",\n" +
+                "\"aisle\":\"224\",\n" +
+                "\"author\":\"John Joe\"\n" +
+                "}";
 
         //Given
         System.out.println("-------------- Given ---------------------");
@@ -36,19 +39,27 @@ public class tc16_DataDriven {
 
         //When
         System.out.println("-------------- When ---------------------");
-        Response response = reqSpec.when().post("/Library/Addbook.php");
+        response = reqSpec.when().post("/Library/Addbook.php");
 
 
         //Then
         System.out.println("-------------- Then ---------------------");
         vr = response.then().log().all();
-        System.out.println("---------Response --------"+vr);
 
 
         //Validation - Status code
         System.out.println("-------Response StatusCode : "+response.statusCode());
         int status = 200;
         Assert.assertEquals(response.statusCode(), status);
+
+
+        //Validate Reposnse Msg and ID
+
+        String msg = response.jsonPath().get("Msg");
+        System.out.println("-------Response Msg : "+msg);
+
+        String id = response.jsonPath().get("ID");
+        System.out.println("-------Response Id : "+id);
 
 
     }
