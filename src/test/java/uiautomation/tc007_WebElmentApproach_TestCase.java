@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
-public class tc007_bestWebElmentApproach {
+public class tc007_WebElmentApproach_TestCase {
 
     @Test
     public void webElementTestCase() throws InterruptedException {
@@ -22,6 +22,7 @@ public class tc007_bestWebElmentApproach {
         elUtil.enterData(emailField, "tom@gmail.com");
         elUtil.enterData(passField, "pass@12345");
 
+        Thread.sleep(5000);
         bUtil.closeBrowser();
 
         WebDriver driver1 = bUtil.initDriver("chrome");
@@ -37,17 +38,17 @@ public class tc007_bestWebElmentApproach {
         By pass = By.id("input-password");
         By passConfirm = By.id("input-confirm");
 
-        ElementUtil elUtil1 = new ElementUtil(driver);
+        ElementUtil elUtil1 = new ElementUtil(driver1);
         elUtil1.enterData(firstName, "Nazia");
         elUtil1.enterData(lastName, "M");
-        elUtil.enterData(email, "nazia232@gmail.com");
-        elUtil.enterData(telephone, "+971 9743294322");
-        elUtil.enterData(pass, "Hello");
-        elUtil.enterData(passConfirm, "Hello");
+        elUtil1.enterData(email, "nazia232@gmail.com");
+        elUtil1.enterData(telephone, "+971 9743294322");
+        elUtil1.enterData(pass, "Hello");
+        elUtil1.enterData(passConfirm, "Hello");
 
 
 
-//        bUtil.closeBrowser();
+        bUtil.closeBrowser();
 
 
     }
