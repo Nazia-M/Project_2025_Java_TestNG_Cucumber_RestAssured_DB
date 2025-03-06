@@ -37,6 +37,7 @@ public class BrowserUtil {
         lengthChech(url);
         httpCheck(url);
         driver.get(url);
+        maximize();
     }
 
     //This method handles all exceptions related to urls taking input as URL
@@ -45,6 +46,7 @@ public class BrowserUtil {
         lengthChech(appUrl);
         httpCheck(appUrl);
         driver.navigate().to(appUrl);
+        maximize();
     }
 
     private void lengthChech(String value){
@@ -73,6 +75,11 @@ public class BrowserUtil {
         System.out.println("Page Title is "+pageURL);
         return pageURL;
     }
+
+    public void maximize(){
+        driver.manage().window().maximize();
+    }
+
 
     public void closeBrowser(){
         if(driver != null){
