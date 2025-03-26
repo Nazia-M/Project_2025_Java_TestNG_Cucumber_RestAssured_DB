@@ -6,13 +6,14 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 public class tc010_AttributeConcept {
+    static WebDriver driver;
 
     @Test
     public void attributeConcept() throws InterruptedException {
 
         BrowserUtil bUtil = new BrowserUtil();
-        WebDriver driver = bUtil.initDriver("chrome");
-        bUtil.launchURL("https://naveenautomationlabs.com/opencart/index.php?route=account/register");
+        driver = bUtil.initDriver("chrome");
+        bUtil.launchURL("https://www.google.com/");
         Thread.sleep(5000);
 
         ElementUtil eUtil = new ElementUtil(driver);
@@ -25,19 +26,24 @@ public class tc010_AttributeConcept {
 //        System.out.println("Value 1 "+value1);
 
 
-        WebElement firstname = driver.findElement(By.id("input-firstname"));
+//        WebElement firstname = driver.findElement(By.id("input-firstname"));
 
-        String value = firstname.getDomAttribute("placeholder");
-        System.out.println("getDomAttribute placeholder : "+value);
-
-        String value1 = firstname.getDomProperty("contentEditable");
-        System.out.println("getDomProperty contentEditable : "+value1);
-
-
+//        String value = firstname.getDomAttribute("placeholder");
+//        System.out.println("getDomAttribute placeholder : "+value);
+//
+//        String value1 = firstname.getDomProperty("contentEditable");
+//        System.out.println("getDomProperty contentEditable : "+value1);
 
 
+        /*
+        Creating Utils
+         */
+        By search = By.id("APjFqb");
+        eUtil.sendKeysData(search, "Selenium");
+        System.out.println(eUtil.getElementDomAttribute(search, "title"));
+        System.out.println(eUtil.getElementDomProperty(search, "value"));
 
-
+        Thread.sleep(5000);
         bUtil.closeBrowser();
 
     }

@@ -19,8 +19,8 @@ public class tc007_WebElmentApproach_TestCase {
         By passField = By.id("input-password");
 
         ElementUtil elUtil = new ElementUtil(driver);
-        elUtil.enterData(emailField, "tom@gmail.com");
-        elUtil.enterData(passField, "pass@12345");
+        elUtil.sendKeysData(emailField, "tom@gmail.com");
+        elUtil.sendKeysData(passField, "pass@12345");
 
         Thread.sleep(5000);
         bUtil.closeBrowser();
@@ -39,12 +39,12 @@ public class tc007_WebElmentApproach_TestCase {
         By passConfirm = By.id("input-confirm");
 
         ElementUtil elUtil1 = new ElementUtil(driver1);
-        elUtil1.enterData(firstName, "Nazia");
-        elUtil1.enterData(lastName, "M");
-        elUtil1.enterData(email, "nazia232@gmail.com");
-        elUtil1.enterData(telephone, "+971 9743294322");
-        elUtil1.enterData(pass, "Hello");
-        elUtil1.enterData(passConfirm, "Hello");
+        elUtil1.sendKeysData(firstName, "Nazia");
+        elUtil1.sendKeysData(lastName, "M");
+        elUtil1.sendKeysData(email, "nazia232@gmail.com");
+        elUtil1.sendKeysData(telephone, "+971 9743294322");
+        elUtil1.sendKeysData(pass, "Hello");
+        elUtil1.sendKeysData(passConfirm, "Hello");
 
 
 

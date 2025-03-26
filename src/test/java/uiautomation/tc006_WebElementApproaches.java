@@ -59,8 +59,8 @@ public class tc006_WebElementApproaches {
         By passField = By.id("input-password");
 
         ElementUtil elUtil = new ElementUtil(driver);
-        elUtil.enterData(emailField, "tom@gmail.com");
-        elUtil.enterData(passField, "pass@12345");
+        elUtil.sendKeysData(emailField, "tom@gmail.com");
+        elUtil.sendKeysData(passField, "pass@12345");
 
 
 
